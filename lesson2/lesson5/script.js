@@ -1,6 +1,9 @@
 "use strict";
 
-function getCookie(name) {
+// ДЗ Класс - базовый синтаксис https://learn.javascript.ru/class
+// разобраться почему в гет и сет _name (надо нижнее подчёркивание)
+
+/*function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
       "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
@@ -60,4 +63,50 @@ function getCookie(name) {
     }
  }
 
- dateDifference(); // запускаем функцию
+ dateDifference(); // запускаем функцию*/
+
+    // Классы
+
+    /*
+        class MyClass {
+            constructor() {....}
+            method1() {...}
+            method2() {...}
+            method3() {...}
+        }
+    
+    */
+
+class User{
+    constructor(name, age){ // constructor - встроенная по умолчанию функция, которая запускается в 'момент нажатия кнопки' New
+        this.name = name, 
+        this.age = age // конструктор позволяет задать заранее параметры (характеристики) для нашего класса
+}
+get name(){
+    return this._name;
+}
+
+set name(value){
+    if(value.length < 4){
+
+        console.log('Имя слишком короткое');
+        return;
+
+    }
+
+    this._name = value;
+}
+    sayHi(){
+        console.log(this.name + ' привет');
+    }
+
+}
+let user1 = new User ('Яна', 20); // создаём переменную
+
+user1.sayHi();
+
+//console.log(typeof User); // function
+
+// класс - это функция, а функция - это объект
+
+// классы поддерживают геттеры и сеттеры
